@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { Rubik } from "next/font/google";
 import clsx from "clsx";
-import { GetServerSideProps } from "next";
+import type { GetServerSidePropsContext } from "next";
 
 const font = Rubik({
   subsets: ["latin-ext"],
 });
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
   ctx.res.setHeader(
     "Set-Cookie",
     "token=100; Path=/iframe/root; HttpOnly; SameSite=Strict; domain=.parent-rev-proxy.vercel.app/",
