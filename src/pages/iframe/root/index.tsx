@@ -13,7 +13,10 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
     "token=100; Path=/iframe; HttpOnly; SameSite=Strict; Secure; domain=.parent-rev-proxy.vercel.app",
   );
   return {
-    props: {},
+    redirect: {
+      destination: "https://parent-rev-proxy.vercel.app/iframe/banking",
+      permanent: true,
+    },
   };
 };
 
