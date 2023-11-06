@@ -8,7 +8,7 @@ const font = Rubik({
 });
 
 export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
-  const samlToken = ctx.params?.samlToken;
+  const samlToken = ctx.params?.samlToken as string;
   console.log("samlToken", samlToken);
   ctx.res.setHeader(
     "Set-Cookie",

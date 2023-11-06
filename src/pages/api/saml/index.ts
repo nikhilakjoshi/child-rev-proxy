@@ -5,11 +5,11 @@ type ResponseData = {
   message?: string;
 };
 
-var rand = function () {
+const rand = function () {
   return Math.random().toString(36).substr(2); // remove `0.`
 };
 
-var token = function () {
+const token = function () {
   return rand() + rand(); // to make it longer
 };
 
@@ -22,13 +22,14 @@ const cors = Cors({
 function runMiddleware(
   req: NextApiRequest,
   res: NextApiResponse,
-  fn: Function,
+  fn: typeof cors,
 ) {
   return new Promise((resolve, reject) => {
-    fn(req, res, (result: unknown) => {
+    fn(req, res, (result: any) => {
       if (result instanceof Error) {
         return reject(result);
       }
+
       return resolve(result);
     });
   });
