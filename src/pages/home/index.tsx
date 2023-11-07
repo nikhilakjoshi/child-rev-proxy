@@ -26,7 +26,9 @@ export default function Banking(
   props: InferGetServerSidePropsType<typeof getServerSideProps>,
 ) {
   const triggerHello = useCallback(async () => {
-    const resp = await fetch("/api/hello");
+    const resp = await fetch("/api/hello", {
+      method: "POST",
+    });
     const json = (await resp.json()) as { message: string };
   }, []);
   return (
