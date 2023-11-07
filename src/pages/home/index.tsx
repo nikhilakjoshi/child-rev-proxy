@@ -12,7 +12,7 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
   console.log("cookie-headers", ctx.req.headers.cookie);
   return {
     props: {
-      cookie: ctx.req.headers.cookie,
+      cookie: ctx.req.headers.cookie ?? null,
       host: ctx.req.headers.host,
     },
   };
@@ -26,7 +26,7 @@ export default function Banking(
   props: InferGetServerSidePropsType<typeof getServerSideProps>,
 ) {
   const triggerHello = useCallback(async () => {
-    const resp = await fetch("/api/hello", {
+    const resp = await fetch("/banking/api/hello", {
       method: "POST",
     });
     const json = (await resp.json()) as { message: string };
@@ -58,12 +58,12 @@ export default function Banking(
         {props.cookie && (
           <div className="grow bg-rose-100 px-20 py-4">{`cookie -> ${props.cookie}`}</div>
         )}
-        <div className="my-8">
+        <div className="my-8 bg-rose-100 px-20 py-4">
           <button
             onClick={() => {
               triggerHello().then(() => console.log("triggered"));
             }}
-            className="rounded bg-purple-500 px-4 py-2 font-bold text-white hover:bg-purple-700"
+            className="rounded bg-purple-500 px-2 py-1 text-white hover:bg-purple-700"
           >
             Trigger API
           </button>
