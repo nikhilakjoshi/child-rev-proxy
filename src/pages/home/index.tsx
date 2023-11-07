@@ -61,7 +61,9 @@ export default function Banking(
         <div className="flex items-center gap-8 bg-rose-100 px-20 py-4">
           <button
             onClick={() => {
-              triggerHello().then(() => console.log("triggered"));
+              triggerHello()
+                .then(() => console.log("triggered"))
+                .catch(console.error);
             }}
             className="rounded bg-purple-500 px-2 py-1 text-white hover:bg-purple-700"
           >
