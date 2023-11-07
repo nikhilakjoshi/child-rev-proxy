@@ -58,15 +58,21 @@ export default function Banking(
         {props.cookie && (
           <div className="grow bg-rose-100 px-20 py-4">{`cookie -> ${props.cookie}`}</div>
         )}
-        <div className="my-8 bg-rose-100 px-20 py-4">
+        <div className="flex items-center gap-8 bg-rose-100 px-20 py-4">
           <button
             onClick={() => {
               triggerHello().then(() => console.log("triggered"));
             }}
             className="rounded bg-purple-500 px-2 py-1 text-white hover:bg-purple-700"
           >
-            Trigger API
+            Trigger API from iframe
           </button>
+          <div>
+            Request should have cookie header as calls are going to
+            <span className="inline-block rounded bg-gray-600 px-2 py-0.5 font-mono text-white">
+              /banking/api/*
+            </span>
+          </div>
         </div>
       </main>
     </>
