@@ -35,7 +35,18 @@ export default function Banking(
       <main className={clsx("z-20 flex min-h-screen flex-col", font.className)}>
         <nav className="bg-purple-100 px-20 py-4">
           <h2 className="text-xl font-semibold">
-            Child App {props.host ? ` - Hosted on ${props.host}` : ""}
+            Child App{" "}
+            {props.host ? (
+              <div className="inline">
+                {" "}
+                - Hosted on{" "}
+                <span className="inline-block rounded bg-gray-300 px-2 py-0.5 font-mono text-gray-700">
+                  {props.host}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
           </h2>
         </nav>
         {props.cookie && (
