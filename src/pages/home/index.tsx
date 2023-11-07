@@ -12,6 +12,7 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
   return {
     props: {
       cookie: ctx.req.headers.cookie,
+      host: ctx.req.headers.host,
     },
   };
 };
@@ -34,7 +35,7 @@ export default function Banking(
       <main className={clsx("z-20 flex min-h-screen flex-col", font.className)}>
         <nav className="bg-purple-100 px-20 py-4">
           <h2 className="text-xl font-semibold">
-            Child App {window ? `- Hosted on: ${window.location.href}` : ""}
+            Child App {props.host ? ` - Hosted on ${props.host}` : ""}
           </h2>
         </nav>
         {props.cookie && (
