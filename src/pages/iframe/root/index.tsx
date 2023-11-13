@@ -10,7 +10,7 @@ const font = Rubik({
 export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
   ctx.res.setHeader(
     "Set-Cookie",
-    "token=100; Path=/iframe; HttpOnly; SameSite=Strict; Secure; domain=.parent-rev-proxy.vercel.app",
+    "token=100; Path=/iframe; HttpOnly; SameSite=Strict; Secure; domain=.child-rev-proxy.vercel.app",
   );
   return {
     redirect: {
