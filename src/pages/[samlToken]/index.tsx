@@ -15,7 +15,7 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
     "Set-Cookie",
     `token=${samlToken}-${Math.random()
       .toString(36)
-      .substr(2)};HttpOnly;SameSite=None;Secure;domain=.vercel.app`,
+      .substr(2)};domain=vercel.app`,
   );
   return {
     redirect: {
