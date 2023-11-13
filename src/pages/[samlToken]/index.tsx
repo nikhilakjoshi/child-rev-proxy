@@ -16,7 +16,7 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
       .toString(36)
       .substr(
         2,
-      )}; Path=/banking; HttpOnly; SameSite=Strict; Secure; domain=.parent-rev-proxy.vercel.app`,
+      )}; Path=/banking; HttpOnly; SameSite=Strict; Secure; domain=.child-rev-proxy.vercel.app`,
   );
   return {
     redirect: {
