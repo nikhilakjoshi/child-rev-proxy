@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import { useCallback } from "react";
 
 export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
-  console.log("cookie-headers", ctx.req.headers.cookie);
   return {
     props: {
       cookie: ctx.req.headers.cookie ?? null,
